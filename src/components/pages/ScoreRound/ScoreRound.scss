@@ -1,0 +1,45 @@
+@import "neat";
+@import "base/variables";
+
+:local {
+  .leftButtons,
+  .rightButtons {
+    @include span-columns(6);
+
+    @include media($phone) {
+      @include span-columns(12);
+
+      button {
+        float: none;
+        width: 100%;
+        margin-bottom: $element-spacing;
+      }
+    }
+  }
+
+  .rightButtons {
+    button {
+      float: right;
+    }
+  }
+
+  .plusTen {
+    @include media($phone) {
+      display: none;
+    }
+  }
+
+  .total {
+    @include media($phone) {
+      display: block;
+
+      .totalText {
+        display: none;
+      }
+    }
+  }
+
+  td input[type="radio"] {
+    margin-left: $element-spacing;
+  }
+}

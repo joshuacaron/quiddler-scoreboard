@@ -1,0 +1,9 @@
+:global {
+  @import "bourbon";
+  @import "neat";
+  @import "base/base";
+  
+  .app {
+    @include outer-container;
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "quiddler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/app.js",
+  "dependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.14.0",
+    "babel-plugin-transform-react-display-name": "^6.8.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "bourbon": "thoughtbot/bourbon",
+    "bourbon-neat": "thoughtbot/neat",
+    "css-loader": "^0.25.0",
+    "eslint": "^3.5.0",
+    "eslint-plugin-react": "^6.2.0",
+    "immutable": "^3.8.1",
+    "jscs": "^3.0.7",
+    "node-sass": "^3.9.3",
+    "react": "^15.3.1",
+    "react-addons-pure-render-mixin": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --inline --hot --content-base dist"
+  },
+  "author": "Joshua Caron <joshua@joshuacaron.ca>",
+  "license": "MIT"
+}

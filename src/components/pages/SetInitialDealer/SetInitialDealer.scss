@@ -1,0 +1,15 @@
+@import "base/variables";
+
+:local {
+  .playerList {
+    li {
+      cursor: pointer;
+      font-size: 1.2em;
+
+      &:hover {
+        color: $action-color;
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import 'neat';
+@import 'base/variables';
+
+:local {
+  .inputs {
+    @include span-columns(9);
+
+    @include media($phone) {
+      @include span-columns(12);
+    }
+  }
+
+  .submit {
+    @include span-columns(3);
+
+    @include media($phone) {
+      @include span-columns(12);
+    }
+  }
+}

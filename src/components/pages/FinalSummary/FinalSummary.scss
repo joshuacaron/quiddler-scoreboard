@@ -1,0 +1,20 @@
+@import 'neat';
+@import 'base/variables';
+
+:local {
+  .winner {
+    font-weight: bold;
+  }
+
+  .reset,
+  .again {
+    @include media($phone) {
+      @include span-columns(12);
+      margin-bottom: $element-spacing;
+    }
+  }
+
+  .again {
+    float: right;
+  }
+}
