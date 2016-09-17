@@ -63,7 +63,10 @@ const App = createClass({
     this.setState({
       turn: 2,
       initialDealer: null,
-      data: this.state.data.update('scores', scores => scores.map(x => new Map())),
+      data: this.state.data
+        .update('scores', scores => scores.map(x => new Map()))
+        .set('most', new Map())
+        .set('longest', new Map()),
     })
   },
 

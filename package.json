@@ -26,11 +26,14 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "aws-sdk": "^2.6.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --inline --hot --content-base dist",
-    "build": "webpack --config webpack.production.config.js"
+    "build": "webpack --config webpack.production.config.js",
+    "aws": "node aws"
   },
   "author": "Joshua Caron <joshua@joshuacaron.ca>",
   "license": "MIT"
