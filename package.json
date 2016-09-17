@@ -29,7 +29,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --inline --hot --content-base dist"
+    "start": "webpack-dev-server --inline --hot --content-base dist",
+    "build": "webpack --config webpack.production.config.js"
   },
   "author": "Joshua Caron <joshua@joshuacaron.ca>",
   "license": "MIT"
