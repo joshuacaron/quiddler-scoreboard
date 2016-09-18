@@ -7,10 +7,16 @@ import FinalSummary from '../../pages/FinalSummary/FinalSummary.jsx'
 import SetInitialDealer from '../../pages/SetInitialDealer/SetInitialDealer.jsx'
 import SetPlayers from '../../pages/SetPlayers/SetPlayers.jsx'
 
+import moment from 'moment'
+
+const storageKey = 'quiddler-scoreboard'
+
 import '../../../theme/main.scss'
 
 function addData(data, round, roundData) {
   let players = roundData.get('scores').keySeq().toArray()
+
+  round = round.toString()
 
   for (let player of players) {
     if (player && data.getIn(['scores', player])) {
@@ -47,7 +53,46 @@ const App = createClass({
     }
   },
 
+  componentWillMount() {
+    let data = localStorage.getItem(storageKey)
+
+    if (!data) {
+      return
+    }
+
+    data = JSON.parse(data)
+
+    if (data && data.exp && moment(data.exp).isAfter(moment())) {
+      this.setState({
+        initialDealer: data.initialDealer,
+        turn: parseInt(data.turn) || 1,
+        data: Immutable.fromJS(data.data),
+      })
+    }
+  },
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.data !== this.state.data && prevState.turn <= this.state.turn) {
+      this.cacheData()
+    }
+  },
+
+  cacheData() {
+    localStorage.setItem(storageKey, JSON.stringify({
+      exp: moment().add(1, 'hours').format(),
+      initialDealer: this.state.initialDealer,
+      turn: this.state.turn,
+      data: this.state.data.toJS(),
+    }))
+  },
+
+  clearCache() {
+    localStorage.removeItem(storageKey)
+  },
+
   reset() {
+    this.clearCache()
+
     this.setState({
       turn: 1,
       initialDealer: null,
@@ -60,6 +105,7 @@ const App = createClass({
   },
 
   again() {
+    this.clearCache()
     this.setState({
       turn: 2,
       initialDealer: null,
@@ -113,9 +159,9 @@ const App = createClass({
 
     if (turn >= 3 && turn < 11) {
       let roundData = Immutable.fromJS({
-        scores: data.get('scores').map(x => x && x.has(turn) ? x.get(turn) : undefined),
-        most: data.getIn(['most', turn]),
-        longest: data.getIn(['longest', turn]),
+        scores: data.get('scores').map(x => x && x.has(turn.toString()) ? x.get(turn.toString()) : undefined),
+        most: data.getIn(['most', turn.toString()]),
+        longest: data.getIn(['longest', turn.toString()]),
       })
 
       output = <ScoreRound
