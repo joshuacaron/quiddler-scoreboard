@@ -26,16 +26,6 @@ const ScoreRound = createClass({
     initialDealer: PropTypes.string.isRequired,
   },
 
-  componentWillMount() {
-    setTitle('Round ' + this.props.turn)
-  },
-
-  componentWillUpdate(nextProps) {
-    if (this.props.turn !== nextProps.turn) {
-      setTitle('Round ' + nextProps.turn)
-    }
-  },
-
   submit() {
     let data = this.getData()
 

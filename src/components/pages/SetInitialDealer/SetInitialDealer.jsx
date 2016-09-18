@@ -15,10 +15,6 @@ const SetInitialDealer = createClass({
     setDealer: PropTypes.func.isRequired,
   },
 
-  componentWillMount() {
-    setTitle('Select Dealer')
-  },
-
   render() {
     return <div>
       <h1>Select the initial dealer</h1>

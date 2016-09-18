@@ -20,10 +20,6 @@ const SetPlayers = createClass({
     }
   },
 
-  componentWillMount() {
-    setTitle('Add Players')
-  },
-
   lastFieldChange(val) {
     if (val) {
       this.setState({
