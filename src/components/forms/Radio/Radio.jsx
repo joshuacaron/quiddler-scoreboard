@@ -49,6 +49,11 @@ const Radio = createClass({
   },
 
   onChange(e) {
+    if (this.state.checked) {
+      this.removeChecked()
+      return
+    }
+
     if (this.props.name) {
       RadioGroup.setChecked(this.props.name, this)
     } else {
