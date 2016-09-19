@@ -3,6 +3,8 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 
 import RadioGroup from './RadioGroup.jsx'
 
+import styles from './Radio.scss'
+
 const Radio = createClass({
   displayName: 'Radio',
   mixins: [PureRenderMixin],
@@ -11,6 +13,7 @@ const Radio = createClass({
     label: PropTypes.string,
     name: PropTypes.string,
     onChange: PropTypes.func,
+    toggleable: PropTypes.bool,
     value: PropTypes.string,
   },
 
@@ -49,7 +52,7 @@ const Radio = createClass({
   },
 
   onChange(e) {
-    if (this.state.checked) {
+    if (this.props.toggleable && this.state.checked) {
       this.removeChecked()
       return
     }
@@ -67,8 +70,8 @@ const Radio = createClass({
 
   render() {
     return <div>
-      <input type='radio' name={this.props.name} checked={this.state.checked}
-        onChange={this.onChange} />
+      <input type={this.props.toggleable ? 'checkbox' : 'radio'} name={this.props.name} checked={this.state.checked}
+        onChange={this.onChange} className={styles.input} />
     </div>
   },
 })

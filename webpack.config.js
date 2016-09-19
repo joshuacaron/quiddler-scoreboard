@@ -6,7 +6,7 @@ module.exports = {
     path: __dirname + '/dist/',
     filename: '[name]',
   },
-  devtool: 'source-map',
+  devtool: 'cheap-module-eval-source-map',
   entry: {
     'index.js': './src/main.jsx',
   },
@@ -19,6 +19,7 @@ module.exports = {
         query: {
           compact: false,
           presets: ['react', 'es2015'],
+          plugins: ['react-hot-loader/babel'],
         },
       },
       {
@@ -28,6 +29,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+  ],
   sassLoader: {
     includePaths: [
       require('bourbon').includePaths,

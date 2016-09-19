@@ -4,13 +4,7 @@
   "compact": false,
   "env": {
     "development": {
-      "plugins": [["transform-react-display-name"], ["react-transform", {
-        "transforms": [{
-          "transform": "react-transform-hmr",
-          "imports": ["react"],
-          "locals": ["module"]
-        }]
-      }]]
+      "plugins": ["react-hot-loader/babel"]
     }
   }
 }

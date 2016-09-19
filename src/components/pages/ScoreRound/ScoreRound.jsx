@@ -71,8 +71,8 @@ const ScoreRound = createClass({
     let inputs = players.map(x => <tr key={turn + '.' + x}>
       <td>{x} <span className={styles.total}>(<span className={styles.totalText}>Total:&nbsp;</span>{totals.get(x)})</span></td>
       <td><Input ref={x} value={roundData.get('scores').get(x)} type='number' /></td>
-      <td><Radio name='longest' checked={roundData.get('longest') === x} value={x} /></td>
-      <td><Radio name='most' checked={roundData.get('most') === x} value={x} /></td>
+      <td><Radio name='longest' checked={roundData.get('longest') === x} value={x} toggleable={true} /></td>
+      <td><Radio name='most' checked={roundData.get('most') === x} value={x} toggleable={true} /></td>
       </tr>).toArray()
 
     return <div>
